@@ -38,7 +38,10 @@ const observer=new IntersectionObserver((entries)=>{
         const parent=el.parentElement;
         const siblings=parent?[...parent.querySelectorAll('[data-animate]')]:[];
         const idx=siblings.indexOf(el);
-        delay=idx>=0?idx*110:0;
+        if(idx>=0){
+          const isTimelineItem=el.classList.contains('tl-item');
+          delay=isTimelineItem?Math.min(idx*35,140):Math.min(idx*90,360);
+        }
       }
       const timer=setTimeout(()=>{
         el.classList.add('visible');
@@ -49,7 +52,7 @@ const observer=new IntersectionObserver((entries)=>{
       el.classList.remove('visible');
     }
   });
-},{threshold:.15,rootMargin:'0px 0px -12% 0px'});
+},{threshold:.06,rootMargin:'0px 0px 8% 0px'});
 
 document.querySelectorAll(animatedSelector).forEach(el=>observer.observe(el));
 
