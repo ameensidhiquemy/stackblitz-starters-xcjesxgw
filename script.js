@@ -63,7 +63,7 @@ const textSelector=[
   '.hero-badge','.hero-meta span','.time-badge','.footer-logo',
   '.impact-num','.impact-label','.pc-number','.pc-question','.pc-team','.pc-desc','.pc-expand-hint',
   '.proto-number','.proto-question','.proto-team','.proto-desc',
-  '.tl-time','.tl-content h3','.tl-content p','.tl-tag','.quote-text','.quote-attr'
+  '.quote-text','.quote-attr'
 ].join(',');
 
 const textObserver=new IntersectionObserver((entries)=>{
